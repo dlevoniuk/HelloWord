@@ -1,6 +1,5 @@
 public class TestHelloWord
 {
-    // Test
     public static void main (String[] arg)
     {
         int test = 10;
