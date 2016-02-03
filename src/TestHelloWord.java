@@ -1,23 +1,23 @@
+import java.util.HashSet;
+
 public class TestHelloWord
 {
     // Test 1
-    public static void main (String[] arg)
-    {
+    public static void main (String[] arg) {
         int test = 10;
         float test1 = 123f;
         System.out.println("Hello word" + test);
 
-        try (TestResourcesFree resources = new TestResourcesFree())
-        {
+        try (TestResourcesFree resources = new TestResourcesFree()) {
             resources.execute();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         TestStaticConstructor.GetInstanse().Execute("Test1");
         System.out.println("Completed");
+
+
     }
 }
 
@@ -37,6 +37,10 @@ class TestStaticConstructor
 
     public void Execute(String input)
     {
+        HashSet<String> hash = new HashSet<>();
+        hash.add("Test");
+
+
         switch (input)
         {
             case "Test1":
@@ -49,6 +53,14 @@ class TestStaticConstructor
             }
         }
         System.out.println("Execute");
+    }
+
+    @Override protected void finalize() throws Throwable {
+        try {
+            System.out.println("finalize");
+        } finally {
+            super.finalize();
+        }
     }
 }
 
