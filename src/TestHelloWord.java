@@ -40,7 +40,6 @@ class TestStaticConstructor
         HashSet<String> hash = new HashSet<>();
         hash.add("Test");
 
-
         switch (input)
         {
             case "Test1":
